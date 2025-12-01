@@ -388,7 +388,7 @@ export default function RoomPage() {
               onClick={() => setSelectedRoom(null)}
             >
               <div 
-                className="bg-white w-full max-w-md rounded-3xl overflow-hidden border border-slate-600 max-h-[85vh] overflow-y-auto"
+                className="bg-white w-full max-w-md rounded-3xl overflow-hidden border border-slate-6   00 max-h-[85vh] overflow-y-auto"
                 onClick={(e) => e.stopPropagation()}
               >
                 <div className="relative h-48 w-full">
