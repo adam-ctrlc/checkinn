@@ -1,0 +1,187 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* Geist (replaces next/font/google) */
+@import "@fontsource/geist/300.css";
+@import "@fontsource/geist/400.css";
+@import "@fontsource/geist/500.css";
+@import "@fontsource/geist/600.css";
+@import "@fontsource/geist/700.css";
+@import "@fontsource/geist/800.css";
+@import "@fontsource/geist/900.css";
+@import "@fontsource/geist-mono/400.css";
+@import "@fontsource/geist-mono/500.css";
+
+/* Playfair Display — elegant serif headings */
+@import "@fontsource/playfair-display/400.css";
+@import "@fontsource/playfair-display/500.css";
+@import "@fontsource/playfair-display/600.css";
+@import "@fontsource/playfair-display/700.css";
+@import "@fontsource/playfair-display/800.css";
+@import "@fontsource/playfair-display/900.css";
+/* Cormorant Italic — cursive display headings */
+@import "@fontsource/cormorant/400-italic.css";
+@import "@fontsource/cormorant/500-italic.css";
+@import "@fontsource/cormorant/600-italic.css";
+@import "@fontsource/cormorant/700-italic.css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: hsl(0 0% 100%);
+  --foreground: hsl(240 10% 3.9%);
+  --muted: hsl(240 4.8% 95.9%);
+  --muted-foreground: hsl(240 3.8% 46.1%);
+  --popover: hsl(0 0% 100%);
+  --popover-foreground: hsl(240 10% 3.9%);
+  --card: hsl(0 0% 100%);
+  --card-foreground: hsl(240 10% 3.9%);
+  --border: hsl(240 5.9% 90%);
+  --input: hsl(240 5.9% 90%);
+  --primary: hsl(240 5.9% 10%);
+  --primary-foreground: hsl(0 0% 98%);
+  --secondary: hsl(240 4.8% 95.9%);
+  --secondary-foreground: hsl(240 5.9% 10%);
+  --accent: hsl(240 4.8% 95.9%);
+  --accent-foreground: hsl(240 5.9% 10%);
+  --destructive: hsl(0 72.2% 50.6%);
+  --destructive-foreground: hsl(0 0% 98%);
+  --ring: hsl(240 10% 3.9%);
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: hsl(240 10% 3.9%);
+  --foreground: hsl(0 0% 98%);
+  --muted: hsl(240 3.7% 15.9%);
+  --muted-foreground: hsl(240 5% 64.9%);
+  --popover: hsl(240 10% 3.9%);
+  --popover-foreground: hsl(0 0% 98%);
+  --card: hsl(240 10% 3.9%);
+  --card-foreground: hsl(0 0% 98%);
+  --border: hsl(240 3.7% 15.9%);
+  --input: hsl(240 3.7% 15.9%);
+  --primary: hsl(0 0% 98%);
+  --primary-foreground: hsl(240 5.9% 10%);
+  --secondary: hsl(240 3.7% 15.9%);
+  --secondary-foreground: hsl(0 0% 98%);
+  --accent: hsl(240 3.7% 15.9%);
+  --accent-foreground: hsl(0 0% 98%);
+  --destructive: hsl(0 62.8% 30.6%);
+  --destructive-foreground: hsl(0 0% 98%);
+  --ring: hsl(240 4.9% 83.9%);
+}
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-ring: var(--ring);
+
+  --font-sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-serif: "Playfair Display", ui-serif, Georgia, serif;
+  --font-display: "Cormorant", "Playfair Display", ui-serif, Georgia, serif;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Per-floor background textures — each floor gets a distinct subtle pattern */
+.tex-1 {
+  /* dots */
+  background-image: radial-gradient(
+    rgba(148, 163, 184, 0.3) 1px,
+    transparent 1.5px
+  );
+  background-size: 18px 18px;
+}
+.tex-2 {
+  /* grid */
+  background-image: linear-gradient(
+      rgba(148, 163, 184, 0.16) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.16) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+.tex-3 {
+  /* diagonal lines */
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(148, 163, 184, 0.16) 0,
+    rgba(148, 163, 184, 0.16) 1px,
+    transparent 1px,
+    transparent 14px
+  );
+}
+.tex-4 {
+  /* crosshatch */
+  background-image: repeating-linear-gradient(
+      45deg,
+      rgba(148, 163, 184, 0.12) 0 1px,
+      transparent 1px 16px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      rgba(148, 163, 184, 0.12) 0 1px,
+      transparent 1px 16px
+    );
+}
+.tex-5 {
+  /* rings */
+  background-image: radial-gradient(
+    circle,
+    transparent 0 5px,
+    rgba(148, 163, 184, 0.18) 5px 6px,
+    transparent 6px
+  );
+  background-size: 24px 24px;
+}
+
+/* Hide scrollbar for horizontal carousels */
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

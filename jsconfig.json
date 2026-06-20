@@ -1,7 +1,39 @@
 {
   "compilerOptions": {
     "paths": {
-      "@/*": ["./src/*"]
-    }
-  }
+      "$lib": ["./src/lib"],
+      "$lib/*": ["./src/lib/*"]
+    },
+    "moduleResolution": "bundler",
+    "target": "ESNext",
+    "module": "ESNext",
+    /**
+     * svelte-preprocess cannot figure out whether you have
+     * a value or a type, so tell TypeScript to enforce using
+     * `import type` instead of `import` for Types.
+     */
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+    "resolveJsonModule": true,
+    /**
+     * To have warnings / errors of the Svelte compiler at the
+     * correct position, enable source maps by default.
+     */
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "types": ["vite/client"],
+    "skipLibCheck": true,
+    /**
+     * Disabled: this is a JS (non-TS) project using shadcn-svelte's
+     * generated JS components, whose props have no static defaults and
+     * would otherwise be reported as "missing required prop". Real Svelte
+     * compiler errors are still surfaced by svelte-check.
+     */
+    "checkJs": false
+  },
+  /**
+   * Use global.d.ts instead of compilerOptions.types
+   * to avoid limiting type declarations.
+   */
+  "include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.svelte"]
 }
